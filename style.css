@@ -1,0 +1,124 @@
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 700px; /* Max width for the container */
+    width: 100%;
+}
+
+h1 {
+    color: #333;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column; /* Stack palette and size control vertically */
+    align-items: center; /* Center them */
+    margin-bottom: 15px;
+    gap: 15px; /* Space between palette and size control */
+}
+
+.color-palette {
+    display: flex;
+    flex-wrap: wrap; /* Allow brushes to wrap to the next line */
+    justify-content: center; /* Center brushes if they wrap */
+    gap: 10px;
+    max-width: 280px; /* (30px width + 10px gap) * 6 = 240px approx, adjust as needed for 6 brushes per row */
+                      /* (30px width + 2px border*2 + 10px gap)*6 ~ (44*6=264) */
+}
+
+.color-brush {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #ccc;
+    transition: transform 0.1s ease;
+    flex-shrink: 0; /* Prevent shrinking if space is tight */
+}
+
+.color-brush.active {
+    border-color: #007bff;
+    transform: scale(1.2);
+}
+
+.brush-size-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#doodleArea {
+    border: 2px solid #333;
+    cursor: crosshair;
+    background-color: #f9f9f9; /* Slightly off-white for better contrast if needed */
+    touch-action: none;
+    /* Ensure canvas maintains aspect ratio or fixed size based on attributes */
+    width: 100%; /* Make canvas responsive within its container */
+    max-width: 600px; /* Match HTML attribute for consistency unless dynamically handled */
+    height: auto; /* Adjust height proportionally if width is 100% */
+    aspect-ratio: 600 / 400; /* Maintain aspect ratio based on attributes */
+}
+
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button#clearButton {
+    background-color: #dc3545;
+}
+
+button#clearButton:hover {
+    background-color: #c82333;
+}
+
+.instructions {
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments for very small screens if controls get too wide */
+@media (max-width: 400px) {
+    .color-palette {
+        max-width: 100%; /* Allow full width for brushes to wrap more freely */
+        justify-content: space-around;
+    }
+    .controls {
+        gap: 10px;
+    }
+}

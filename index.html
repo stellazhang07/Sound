@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-S">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doodle to Sound</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Doodle to Sound</h1>
+        <p>Draw something and hear it come to life!</p>
+
+        <div class="controls">
+            <div class="color-palette">
+                <!-- Row 1: 6 colors -->
+                <div class="color-brush" data-color="#FF0000" style="background-color: #FF0000;" title="Red (Sine Wave)"></div>
+                <div class="color-brush" data-color="#00FF00" style="background-color: #00FF00;" title="Green (Square Wave)"></div>
+                <div class="color-brush" data-color="#0000FF" style="background-color: #0000FF;" title="Blue (Sawtooth Wave)"></div>
+                <div class="color-brush" data-color="#FFFF00" style="background-color: #FFFF00;" title="Yellow (Triangle Wave)"></div>
+                <div class="color-brush" data-color="#FF00FF" style="background-color: #FF00FF;" title="Magenta (Sine - higher octave)"></div>
+                <div class="color-brush" data-color="#00FFFF" style="background-color: #00FFFF;" title="Cyan (Square - noisy)"></div>
+                <!-- Row 2: 4 colors -->
+                <div class="color-brush" data-color="#FFA500" style="background-color: #FFA500;" title="Orange (Sawtooth - mellow)"></div>
+                <div class="color-brush" data-color="#800080" style="background-color: #800080;" title="Purple (Triangle - deep)"></div>
+                <div class="color-brush" data-color="#A52A2A" style="background-color: #A52A2A;" title="Brown (Noise - filtered)"></div>
+                <div class="color-brush" data-color="#000000" style="background-color: #000000;" title="Black (Noise - short burst)"></div>
+            </div>
+            <div class="brush-size-control">
+                <label for="brushSize">Brush Size:</label>
+                <input type="range" id="brushSize" min="2" max="50" value="10">
+            </div>
+        </div>
+
+        <canvas id="doodleArea" width="600" height="400"></canvas>
+
+        <div class="action-buttons">
+            <button id="playSoundButton">Turn Drawing into Sound</button>
+            <button id="clearButton">Clear Drawing</button>
+        </div>
+         <p class="instructions">
+            How it works:
+            <br>- Left-to-right on the canvas is time.
+            <br>- Top-to-bottom on the canvas is frequency (higher up = higher pitch).
+            <br>- Different colors produce different sound timbres (waveforms).
+        </p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
